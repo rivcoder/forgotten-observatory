@@ -1,0 +1,73 @@
+{
+  "dataset_id": "samanta_epoch_1869_published_comparison",
+  "title": "Epochal mean positions for 12 April 1869",
+  "date": "1869-04-12",
+  "reference": "Mean sunrise at Lanka (as stated by the paper)",
+  "status": "transcribed_secondary_source_not_independently_verified",
+  "source": {
+    "author": "Susanta Barik",
+    "title": "Computational Efficacy of Pathani Samanta’s Astronomy",
+    "publication": "Central India Journal of Historical and Archaeological Research, Vol. XI/XII, No. 36/37, 2021–2022, pp. 62–69",
+    "url": "https://cijhar.in/pdf/2021_Vol_11_No_36_Vol_11_No_37.pdf",
+    "table_location": "Epochal mean positions, pp. 66–67 (PDF pages 66–67)"
+  },
+  "coordinate_warning": "The table labels these as mean positions and gives the epoch as mean sunrise at Lanka. It is a published comparison table, not a direct JPL Horizons output. Do not compare it to a newly fetched ephemeris until coordinate origin, ayanamsa, epoch, time scale and mean/apparent conventions are reconciled.",
+  "positions": [
+    {
+      "body": "Sun",
+      "siddhanta_darpana_dms": "358°15′",
+      "siddhanta_darpana_deg": 358.25,
+      "modern_published_dms": "358°15′",
+      "modern_published_deg": 358.25
+    },
+    {
+      "body": "Moon",
+      "siddhanta_darpana_dms": "3°20′",
+      "siddhanta_darpana_deg": 3.3333333333,
+      "modern_published_dms": "3°09′36″",
+      "modern_published_deg": 3.16
+    },
+    {
+      "body": "Mars",
+      "siddhanta_darpana_dms": "151°24′",
+      "siddhanta_darpana_deg": 151.4,
+      "modern_published_dms": "151°24′",
+      "modern_published_deg": 151.4
+    },
+    {
+      "body": "Mercury",
+      "siddhanta_darpana_dms": "318°14′",
+      "siddhanta_darpana_deg": 318.2333333333,
+      "modern_published_dms": "317°47′",
+      "modern_published_deg": 317.7833333333
+    },
+    {
+      "body": "Venus",
+      "siddhanta_darpana_dms": "343°41′",
+      "siddhanta_darpana_deg": 343.6833333333,
+      "modern_published_dms": "343°40′",
+      "modern_published_deg": 343.6666666667
+    },
+    {
+      "body": "Saturn",
+      "siddhanta_darpana_dms": "228°12′",
+      "siddhanta_darpana_deg": 228.2,
+      "modern_published_dms": "228°24′",
+      "modern_published_deg": 228.4
+    }
+  ],
+  "excluded_rows": [
+    {
+      "body": "Jupiter",
+      "reason": "The modern value is OCR/typographically ambiguous in the available text extraction (printed as 3°0.′0*); omitted rather than silently guessing."
+    },
+    {
+      "body": "Lunar apogee",
+      "reason": "Not a planet; separate special point."
+    },
+    {
+      "body": "Rahu",
+      "reason": "Lunar node; not included in the planetary selector."
+    }
+  ]
+}
