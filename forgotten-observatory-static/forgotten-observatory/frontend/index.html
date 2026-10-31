@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="A computational reconstruction of historical Indian astronomy.">
+
+    <title>The Forgotten Observatory</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <a class="brand" href="#home">
+        <span class="brand-mark">✳</span>
+        <span>THE FORGOTTEN OBSERVATORY</span>
+    </a>
+
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#reconstruction">Reconstruction</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#gnomon">Gnomon</a>
+        <a href="#research">Research</a>
+    </nav>
+
+    <span class="version">V4.0</span>
+
+</header>
+
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="eyebrow">
+        INDIAN KNOWLEDGE SYSTEMS · COMPUTATIONAL ASTRONOMY
+    </div>
+
+    <h1>
+        The Forgotten<br>
+        <span>Observatory.</span>
+    </h1>
+
+    <p class="hero-description">
+        Reconstructing the mathematics of historical
+        Indian astronomy through computational models,
+        instrument geometry and reproducible research.
+    </p>
+
+    <div class="hero-actions">
+
+        <a href="#reconstruction" class="button primary">
+            Explore reconstruction
+        </a>
+
+        <a href="#research" class="button secondary">
+            Research methodology
+        </a>
+
+    </div>
+
+    <div class="hero-caption">
+        INSPIRED BY PATHANI SAMANTA · 1835–1904
+    </div>
+
+</section>
+
+
+<section class="section" id="overview">
+
+    <div class="section-heading">
+        <span class="eyebrow">01 / THE PROJECT</span>
+        <h2>Mathematics behind the sky.</h2>
+    </div>
+
+    <div class="overview-grid">
+
+        <article class="info-card">
+            <span class="card-number">01</span>
+            <h3>Historical astronomy</h3>
+            <p>
+                Investigating documented calculations and
+                mathematical methods associated with
+                Siddhanta Darpana.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <span class="card-number">02</span>
+            <h3>Planetary reconstruction</h3>
+            <p>
+                Exploring how initial angular positions and
+                mean angular motion can be used to estimate
+                planetary positions over time.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <span class="card-number">03</span>
+            <h3>Instrument geometry</h3>
+            <p>
+                Simulating the geometric principles behind
+                the gnomon and historical astronomical
+                observation instruments.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="reconstruction">
+
+    <div class="section-heading">
+        <span class="eyebrow">02 / MEAN MOTION ENGINE</span>
+        <h2>Reconstruct a position.</h2>
+
+        <p>
+            Calculate an estimated angular position at a
+            selected date using a constant mean-motion model.
+        </p>
+    </div>
+
+
+    <div class="workspace">
+
+        <div class="form-panel">
+
+            <h3>Model parameters</h3>
+
+            <label for="initialLongitude">
+                Initial longitude (degrees)
+            </label>
+
+            <input
+                id="initialLongitude"
+                type="number"
+                min="0"
+                max="359.999999"
+                step="any"
+                value="100"
+            >
+
+
+            <label for="meanMotion">
+                Mean angular motion (degrees/day)
+            </label>
+
+            <input
+                id="meanMotion"
+                type="number"
+                step="any"
+                value="0.985647"
+            >
+
+
+            <label for="referenceDate">
+                Reference date
+            </label>
+
+            <input
+                id="referenceDate"
+                type="date"
+                value="2026-01-01"
+            >
+
+
+            <label for="targetDate">
+                Target date
+            </label>
+
+            <input
+                id="targetDate"
+                type="date"
+                value="2026-10-31"
+            >
+
+
+            <button id="reconstructButton" class="button primary full">
+                Calculate position
+            </button>
+
+        </div>
+
+
+        <div class="result-panel">
+
+            <span class="eyebrow">RECONSTRUCTION RESULT</span>
+
+            <div id="reconstructionResult" class="result-placeholder">
+                Enter model parameters to begin.
+            </div>
+
+            <div class="formula">
+                λ(t) = [λ₀ + n(t − t₀)] mod 360°
+            </div>
+
+            <p class="notice">
+                This is a constant mean-motion model.
+                It is not a complete planetary theory and
+                is not automatically representative of
+                Siddhanta Darpana.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="comparison">
+
+    <div class="section-heading">
+        <span class="eyebrow">03 / ANGULAR ANALYSIS</span>
+        <h2>Compare two positions.</h2>
+    </div>
+
+    <div class="workspace">
+
+        <div class="form-panel">
+
+            <label for="datasetBody">
+                Load from 1869 dataset
+            </label>
+
+            <select id="datasetBody">
+                <option value="">Choose a body…</option>
+            </select>
+
+            <label for="historical">
+                Historical longitude (degrees)
+            </label>
+
+            <input
+                id="historical"
+                type="number"
+                min="0"
+                max="359.999999"
+                step="any"
+                value="358.25"
+            >
+
+            <label for="modern">
+                Modern reference longitude (degrees)
+            </label>
+
+            <input
+                id="modern"
+                type="number"
+                min="0"
+                max="359.999999"
+                step="any"
+                value="358.25"
+            >
+
+            <label class="checkbox-label">
+                <input
+                    id="conventionsMatched"
+                    type="checkbox"
+                >
+
+                Coordinate conventions independently verified
+            </label>
+
+            <button id="compareButton" class="button primary full">
+                Compare positions
+            </button>
+
+        </div>
+
+        <div class="result-panel">
+
+            <span class="eyebrow">ANGULAR DIFFERENCE</span>
+
+            <div id="comparisonResult" class="result-placeholder">
+                Enter two longitudes to compare.
+            </div>
+
+            <div class="formula">
+                Δ = ((H − M + 180) mod 360) − 180
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="dataset-block">
+
+        <span class="eyebrow">PUBLISHED EPOCH · 12 APRIL 1869</span>
+
+        <h3>Siddhanta Darpana vs published modern values</h3>
+
+        <p class="notice" id="datasetMeta">Loading dataset…</p>
+
+        <div class="table-wrap" id="datasetTable"></div>
+
+        <p class="notice" id="datasetWarning"></p>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="gnomon">
+
+    <div class="section-heading">
+        <span class="eyebrow">04 / INSTRUMENT LAB</span>
+        <h2>The geometry of a shadow.</h2>
+
+        <p>
+            Explore the relationship between gnomon height,
+            solar altitude and shadow length.
+        </p>
+    </div>
+
+    <div class="workspace">
+
+        <div class="form-panel">
+
+            <label for="gnomonHeight">
+                Gnomon height (metres)
+            </label>
+
+            <input
+                id="gnomonHeight"
+                type="number"
+                min="0.01"
+                step="any"
+                value="1"
+            >
+
+            <label for="solarAltitude">
+                Solar altitude (degrees)
+            </label>
+
+            <input
+                id="solarAltitude"
+                type="number"
+                min="0.01"
+                max="89.99"
+                step="any"
+                value="45"
+            >
+
+            <button id="gnomonButton" class="button primary full">
+                Calculate shadow
+            </button>
+
+        </div>
+
+        <div class="result-panel">
+
+            <span class="eyebrow">IDEAL SHADOW LENGTH</span>
+
+            <div id="gnomonResult" class="result-placeholder">
+                Enter the instrument parameters.
+            </div>
+
+            <div class="formula">
+                L = H / tan(θ)
+            </div>
+
+            <div class="shadow-visual">
+                <div class="gnomon-stick"></div>
+                <div class="ground-line"></div>
+                <div class="shadow-line"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section research-section" id="research">
+
+    <div class="section-heading">
+        <span class="eyebrow">05 / RESEARCH INTEGRITY</span>
+        <h2>Calculation is not validation.</h2>
+    </div>
+
+    <p>
+        A numerical match between historical and modern
+        values is meaningful only when their coordinate
+        origins, reference frames, epochs, time scales
+        and mean/apparent conventions are compatible.
+    </p>
+
+    <p>
+        V4 provides a general mathematical model.
+        Historical parameters must be independently
+        documented before the model can be attributed
+        to a historical astronomical method.
+    </p>
+
+    <div class="source-note">
+        Historical sample data: published secondary-source
+        transcription for 12 April 1869. Not independently
+        verified against the original calculations.
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <span>THE FORGOTTEN OBSERVATORY</span>
+
+    <span>COMPUTATIONAL RESEARCH PROTOTYPE · V4.0</span>
+
+</footer>
+
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>

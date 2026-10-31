@@ -1,0 +1,501 @@
+:root {
+    --background: #080b12;
+    --surface: #111722;
+    --surface-light: #182230;
+    --text: #edf1f7;
+    --muted: #9ba9ba;
+    --accent: #d6b779;
+    --border: rgba(255, 255, 255, 0.09);
+    --success: #93c6a5;
+    --danger: #e39a8e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Inter, "Segoe UI", sans-serif;
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.topbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(8, 11, 18, 0.94);
+    backdrop-filter: blur(16px);
+}
+
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.brand-mark {
+    color: var(--accent);
+    font-size: 23px;
+}
+
+.topbar nav {
+    display: flex;
+    gap: 27px;
+}
+
+.topbar nav a {
+    color: var(--muted);
+    font-size: 12px;
+    transition: color 0.2s ease;
+}
+
+.topbar nav a:hover {
+    color: var(--accent);
+}
+
+.version {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.hero {
+    min-height: 590px;
+    padding: 120px 10% 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        radial-gradient(
+            ellipse at 80% 25%,
+            rgba(173, 143, 87, 0.14),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 15% 85%,
+            rgba(57, 89, 125, 0.13),
+            transparent 45%
+        );
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: 1.02;
+    letter-spacing: -5px;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero-description {
+    color: var(--muted);
+    max-width: 600px;
+    font-size: 16px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 13px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.button {
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    background: var(--accent);
+    color: #17140e;
+    border-color: var(--accent);
+}
+
+.secondary {
+    color: var(--text);
+    background: transparent;
+}
+
+.full {
+    width: 100%;
+    margin-top: 22px;
+}
+
+.hero-caption {
+    margin-top: 70px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.section {
+    padding: 100px 10%;
+    border-top: 1px solid var(--border);
+}
+
+.section-heading {
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 5vw, 47px);
+    line-height: 1.2;
+    margin-top: 13px;
+    letter-spacing: -1.5px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 650px;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+}
+
+.card-number {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.info-card h3 {
+    font-size: 17px;
+    margin: 25px 0 10px;
+}
+
+.info-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 18px;
+}
+
+.form-panel,
+.result-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.form-panel h3 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 17px 0 7px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--background);
+    color: var(--text);
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.checkbox-label input {
+    accent-color: var(--accent);
+}
+
+.result-placeholder {
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    color: var(--muted);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.result-value {
+    color: var(--accent);
+    font-size: clamp(30px, 5vw, 47px);
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.result-details {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2;
+}
+
+.formula {
+    margin-top: 18px;
+    padding: 15px;
+    background: var(--surface-light);
+    color: var(--accent);
+    border-radius: 5px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.notice {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 16px;
+}
+
+.shadow-visual {
+    height: 105px;
+    position: relative;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+.ground-line {
+    position: absolute;
+    bottom: 15px;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+    background: var(--muted);
+}
+
+.gnomon-stick {
+    position: absolute;
+    left: 20%;
+    bottom: 16px;
+    height: 75px;
+    width: 4px;
+    background: var(--accent);
+}
+
+.shadow-line {
+    position: absolute;
+    left: 20%;
+    bottom: 16px;
+    width: 48%;
+    height: 3px;
+    transform-origin: left;
+    transform: rotate(0deg);
+    background: rgba(214, 183, 121, 0.55);
+}
+
+.research-section p {
+    color: var(--muted);
+    max-width: 850px;
+    margin-bottom: 18px;
+}
+
+.source-note {
+    margin-top: 28px;
+    padding: 18px;
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 30px 10%;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: 850px) {
+
+    .topbar {
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .topbar nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 5px;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 75px 6%;
+    }
+
+    .hero {
+        padding: 100px 6%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .form-panel,
+    .result-panel {
+        padding: 21px;
+    }
+
+}
+select,
+input[type="number"],
+input[type="date"] {
+    font: inherit;
+}
+
+select {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--background);
+    color: var(--text);
+    outline: none;
+}
+
+select:focus {
+    border-color: var(--accent);
+}
+
+.dataset-block {
+    margin-top: 55px;
+}
+
+.dataset-block h3 {
+    margin: 12px 0 10px;
+    font-size: 20px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 560px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 13px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-table th {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr {
+    cursor: pointer;
+}
+
+.data-table tbody tr:hover,
+.data-table tbody tr:focus-visible {
+    background: var(--surface-light);
+    outline: none;
+}
+
+.data-table .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.data-table .diff {
+    color: var(--accent);
+}
